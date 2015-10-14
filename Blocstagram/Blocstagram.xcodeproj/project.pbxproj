@@ -24,6 +24,10 @@
 		C9DF7CA51BCDB7CC008B906A /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7CA41BCDB7CC008B906A /* 7.jpg */; settings = {ASSET_TAGS = (); }; };
 		C9DF7CA71BCDB7D1008B906A /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7CA61BCDB7D1008B906A /* 8.jpg */; settings = {ASSET_TAGS = (); }; };
 		C9DF7CAA1BCDB831008B906A /* ImagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CA91BCDB831008B906A /* ImagesTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		C9DF7CAD1BCE9BFC008B906A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CAC1BCE9BFC008B906A /* User.m */; settings = {ASSET_TAGS = (); }; };
+		C9DF7CB01BCE9D14008B906A /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CAF1BCE9D14008B906A /* Media.m */; settings = {ASSET_TAGS = (); }; };
+		C9DF7CB31BCE9E3B008B906A /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CB21BCE9E3B008B906A /* Comment.m */; settings = {ASSET_TAGS = (); }; };
+		C9DF7CB61BCE9ED2008B906A /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CB51BCE9ED2008B906A /* DataSource.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +73,14 @@
 		C9DF7CA61BCDB7D1008B906A /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
 		C9DF7CA81BCDB831008B906A /* ImagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesTableViewController.h; sourceTree = "<group>"; };
 		C9DF7CA91BCDB831008B906A /* ImagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesTableViewController.m; sourceTree = "<group>"; };
+		C9DF7CAB1BCE9BFC008B906A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		C9DF7CAC1BCE9BFC008B906A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		C9DF7CAE1BCE9D14008B906A /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
+		C9DF7CAF1BCE9D14008B906A /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Media.m; sourceTree = "<group>"; };
+		C9DF7CB11BCE9E3B008B906A /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		C9DF7CB21BCE9E3B008B906A /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		C9DF7CB41BCE9ED2008B906A /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		C9DF7CB51BCE9ED2008B906A /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +136,14 @@
 				C9DF7C641BCDB545008B906A /* AppDelegate.m */,
 				C9DF7CA81BCDB831008B906A /* ImagesTableViewController.h */,
 				C9DF7CA91BCDB831008B906A /* ImagesTableViewController.m */,
+				C9DF7CAB1BCE9BFC008B906A /* User.h */,
+				C9DF7CAC1BCE9BFC008B906A /* User.m */,
+				C9DF7CAE1BCE9D14008B906A /* Media.h */,
+				C9DF7CAF1BCE9D14008B906A /* Media.m */,
+				C9DF7CB11BCE9E3B008B906A /* Comment.h */,
+				C9DF7CB21BCE9E3B008B906A /* Comment.m */,
+				C9DF7CB41BCE9ED2008B906A /* DataSource.h */,
+				C9DF7CB51BCE9ED2008B906A /* DataSource.m */,
 				C9DF7C6C1BCDB545008B906A /* Assets.xcassets */,
 				C9DF7C6E1BCDB545008B906A /* LaunchScreen.storyboard */,
 				C9DF7C711BCDB545008B906A /* Info.plist */,
@@ -314,7 +334,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9DF7CAD1BCE9BFC008B906A /* User.m in Sources */,
+				C9DF7CB31BCE9E3B008B906A /* Comment.m in Sources */,
+				C9DF7CB01BCE9D14008B906A /* Media.m in Sources */,
 				C9DF7C651BCDB545008B906A /* AppDelegate.m in Sources */,
+				C9DF7CB61BCE9ED2008B906A /* DataSource.m in Sources */,
 				C9DF7C621BCDB545008B906A /* main.m in Sources */,
 				C9DF7CAA1BCDB831008B906A /* ImagesTableViewController.m in Sources */,
 			);
@@ -534,6 +558,7 @@
 				C9DF7C8C1BCDB545008B906A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C9DF7C8D1BCDB545008B906A /* Build configuration list for PBXNativeTarget "BlocstagramTests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +567,7 @@
 				C9DF7C8F1BCDB545008B906A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C9DF7C901BCDB545008B906A /* Build configuration list for PBXNativeTarget "BlocstagramUITests" */ = {
 			isa = XCConfigurationList;
@@ -550,6 +576,7 @@
 				C9DF7C921BCDB545008B906A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

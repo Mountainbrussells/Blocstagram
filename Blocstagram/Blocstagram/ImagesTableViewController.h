@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ImagesTableViewController.h
 //  Blocstagram
 //
 //  Created by Ben Russell on 10/13/15.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ImagesTableViewController : UITableViewController
 
+@property (nonatomic, strong) NSMutableArray *images;
 
 @end
-

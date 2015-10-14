@@ -127,6 +127,7 @@ static NSParagraphStyle *paragraphStyle;
     
     // #3
     NSMutableAttributedString *mutableUsernameAndCaptionString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : [lightFont fontWithSize:usernameFontSize], NSParagraphStyleAttributeName : paragraphStyle}];
+    // Add kerning
     [mutableUsernameAndCaptionString addAttribute:NSKernAttributeName
                                             value:[NSNumber numberWithFloat:2.0]
                                             range:NSMakeRange(0, mutableUsernameAndCaptionString.length)];
@@ -140,6 +141,7 @@ static NSParagraphStyle *paragraphStyle;
     [mutableUsernameAndCaptionString addAttribute:NSForegroundColorAttributeName
                                             value:linkColor
                                             range:usernameRange];
+    // Reset kerning for name string
     [mutableUsernameAndCaptionString addAttribute:NSKernAttributeName
                                             value:[NSNumber numberWithFloat:0.0]
                                             range:usernameRange];
@@ -161,7 +163,7 @@ static NSParagraphStyle *paragraphStyle;
         NSString *baseString = [NSString stringWithFormat:@"%@ %@\n", comment.from.userName, comment.text];
         
         // Make an attributed string, with the "username" bold
-        
+        // Make first comment orange
         if (comment == self.mediaItem.comments[0]){
             oneCommentString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : lightFont, NSParagraphStyleAttributeName : paragraphStyle, NSForegroundColorAttributeName : [UIColor orangeColor]}];
         } else {
@@ -177,7 +179,21 @@ static NSParagraphStyle *paragraphStyle;
                                  value:linkColor
                                  range:usernameRange];
         
-        [commentString appendAttributedString:oneCommentString];
+        // Make every other comment right align
+        int index = (int)[self.mediaItem.comments indexOfObject:comment];
+        
+        if (index % 2 == 1) {
+            NSMutableParagraphStyle *rightStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+            [rightStyle setAlignment:NSTextAlignmentRight];
+            [oneCommentString addAttribute:NSParagraphStyleAttributeName
+                                     value:rightStyle
+                                     range:NSMakeRange(0, oneCommentString.length)];
+            [commentString appendAttributedString:oneCommentString];
+        } else {
+            [commentString appendAttributedString:oneCommentString];
+        }
+        
+        
     }
     
     return  commentString;

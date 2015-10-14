@@ -127,6 +127,10 @@ static NSParagraphStyle *paragraphStyle;
     
     // #3
     NSMutableAttributedString *mutableUsernameAndCaptionString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : [lightFont fontWithSize:usernameFontSize], NSParagraphStyleAttributeName : paragraphStyle}];
+    [mutableUsernameAndCaptionString addAttribute:NSKernAttributeName
+                                            value:[NSNumber numberWithFloat:2.0]
+                                            range:NSMakeRange(0, mutableUsernameAndCaptionString.length)];
+    
     
     // #4
     NSRange usernameRange = [baseString rangeOfString:self.mediaItem.user.userName];
@@ -135,6 +139,9 @@ static NSParagraphStyle *paragraphStyle;
                                             range:usernameRange];
     [mutableUsernameAndCaptionString addAttribute:NSForegroundColorAttributeName
                                             value:linkColor
+                                            range:usernameRange];
+    [mutableUsernameAndCaptionString addAttribute:NSKernAttributeName
+                                            value:[NSNumber numberWithFloat:0.0]
                                             range:usernameRange];
     
     // Should we be returning a mutable instance here?
@@ -148,12 +155,19 @@ static NSParagraphStyle *paragraphStyle;
     NSMutableAttributedString *commentString = [[NSMutableAttributedString alloc] init];
     
     for (Comment *comment in self.mediaItem.comments) {
+        NSMutableAttributedString *oneCommentString = [[NSMutableAttributedString alloc] init];
+        
         // Make a string that says 'username comment" followed by a line break
         NSString *baseString = [NSString stringWithFormat:@"%@ %@\n", comment.from.userName, comment.text];
         
         // Make an attributed string, with the "username" bold
         
-        NSMutableAttributedString *oneCommentString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : lightFont, NSParagraphStyleAttributeName : paragraphStyle}];
+        if (comment == self.mediaItem.comments[0]){
+            oneCommentString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : lightFont, NSParagraphStyleAttributeName : paragraphStyle, NSForegroundColorAttributeName : [UIColor orangeColor]}];
+        } else {
+            
+            oneCommentString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : lightFont, NSParagraphStyleAttributeName : paragraphStyle}];
+        }
         
         NSRange usernameRange = [baseString rangeOfString:comment.from.userName];
         [oneCommentString addAttribute:NSFontAttributeName

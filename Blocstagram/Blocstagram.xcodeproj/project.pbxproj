@@ -28,6 +28,7 @@
 		C9DF7CB01BCE9D14008B906A /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CAF1BCE9D14008B906A /* Media.m */; settings = {ASSET_TAGS = (); }; };
 		C9DF7CB31BCE9E3B008B906A /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CB21BCE9E3B008B906A /* Comment.m */; settings = {ASSET_TAGS = (); }; };
 		C9DF7CB61BCE9ED2008B906A /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CB51BCE9ED2008B906A /* DataSource.m */; settings = {ASSET_TAGS = (); }; };
+		C9DF7CB91BCEAAF5008B906A /* MediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CB81BCEAAF5008B906A /* MediaTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		C9DF7CB21BCE9E3B008B906A /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		C9DF7CB41BCE9ED2008B906A /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		C9DF7CB51BCE9ED2008B906A /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		C9DF7CB71BCEAAF5008B906A /* MediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MediaTableViewCell.h; path = ../MediaTableViewCell.h; sourceTree = "<group>"; };
+		C9DF7CB81BCEAAF5008B906A /* MediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaTableViewCell.m; path = ../MediaTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +134,6 @@
 		C9DF7C5F1BCDB545008B906A /* Blocstagram */ = {
 			isa = PBXGroup;
 			children = (
-				C9DF7C931BCDB781008B906A /* Images */,
 				C9DF7C631BCDB545008B906A /* AppDelegate.h */,
 				C9DF7C641BCDB545008B906A /* AppDelegate.m */,
 				C9DF7CA81BCDB831008B906A /* ImagesTableViewController.h */,
@@ -144,9 +146,12 @@
 				C9DF7CB21BCE9E3B008B906A /* Comment.m */,
 				C9DF7CB41BCE9ED2008B906A /* DataSource.h */,
 				C9DF7CB51BCE9ED2008B906A /* DataSource.m */,
+				C9DF7CB71BCEAAF5008B906A /* MediaTableViewCell.h */,
+				C9DF7CB81BCEAAF5008B906A /* MediaTableViewCell.m */,
 				C9DF7C6C1BCDB545008B906A /* Assets.xcassets */,
 				C9DF7C6E1BCDB545008B906A /* LaunchScreen.storyboard */,
 				C9DF7C711BCDB545008B906A /* Info.plist */,
+				C9DF7C931BCDB781008B906A /* Images */,
 				C9DF7C601BCDB545008B906A /* Supporting Files */,
 			);
 			path = Blocstagram;
@@ -336,6 +341,7 @@
 			files = (
 				C9DF7CAD1BCE9BFC008B906A /* User.m in Sources */,
 				C9DF7CB31BCE9E3B008B906A /* Comment.m in Sources */,
+				C9DF7CB91BCEAAF5008B906A /* MediaTableViewCell.m in Sources */,
 				C9DF7CB01BCE9D14008B906A /* Media.m in Sources */,
 				C9DF7C651BCDB545008B906A /* AppDelegate.m in Sources */,
 				C9DF7CB61BCE9ED2008B906A /* DataSource.m in Sources */,

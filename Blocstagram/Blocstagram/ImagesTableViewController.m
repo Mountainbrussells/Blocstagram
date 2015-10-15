@@ -33,6 +33,9 @@
     
     [[DataSource sharedInstance] addObserver:self forKeyPath:@"mediaItems" options:0 context:nil];
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refreshControlDidFire:) forControlEvents:UIControlEventValueChanged];
+    
     [self.tableView registerClass:[MediaTableViewCell class] forCellReuseIdentifier:@"mediaCell"];
     
 }
@@ -40,6 +43,13 @@
 - (void)dealloc
 {
     [[DataSource sharedInstance] removeObserver:self forKeyPath:@"mediaItems"];
+}
+
+- (void)refreshControlDidFire:(UIRefreshControl *) sender
+{
+    [[DataSource sharedInstance] requestNewItemsWithCompletionHandler:^(NSError *error) {
+        [sender endRefreshing];
+    }];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context

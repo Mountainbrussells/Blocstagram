@@ -99,6 +99,25 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)infiniteScrollIfNecessary
+{
+    // #3
+    NSIndexPath *bottomIndexPath = [[self.tableView indexPathsForVisibleRows] lastObject];
+    
+    if (bottomIndexPath && bottomIndexPath.row == [DataSource sharedInstance].mediaItems.count -1) {
+        // The very last cell is on the screen
+        [[DataSource sharedInstance] requestOldItemsWithCompletionHandler:nil];
+    }
+}
+
+#pragma mark - UIScrollViewDelegate
+
+// #4
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self infiniteScrollIfNecessary];
+}
+
 #pragma mark - Table view data source
 
 
@@ -169,5 +188,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 @end

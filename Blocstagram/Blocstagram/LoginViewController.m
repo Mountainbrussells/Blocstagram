@@ -70,15 +70,7 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
     return YES;
 }
 
-- (void)webViewDidStartLoad:(UIWebView *)webView
-{
-    [self updateBackButton];
-}
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    [self updateBackButton];
-}
 
 - (void)clearInstagramCookies
 {
@@ -100,30 +92,7 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
     return @"http://bloc.io";
 }
 
-- (void)updateBackButton
-{
-    if ([self.webView canGoBack]) {
-        if (!self.navigationItem.leftBarButtonItem) {
-            [self.navigationItem setHidesBackButton:YES animated:YES];
-            UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back"
-                                                                           style:UIBarButtonItemStylePlain
-                                                                          target:self
-                                                                          action:@selector(backWasClicked:)];
-            [self.navigationItem setLeftBarButtonItem:backButton animated:YES];
-        }
-    } else {
-        [self.navigationItem setLeftBarButtonItem:nil animated:YES];
-        [self.navigationItem setHidesBackButton:NO animated:YES];
-    }
-}
 
-- (void)backWasClicked: (id)sender
-{
-    if ([self.webView canGoBack]) {
-        [self.webView goBack];
-    }
-
-}
 /*
 #pragma mark - Navigation
 

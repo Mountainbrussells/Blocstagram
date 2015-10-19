@@ -33,9 +33,11 @@
     
     [[DataSource sharedInstance] addObserver:self forKeyPath:@"mediaItems" options:0 context:nil];
     
+    if ([DataSource sharedInstance].mediaItems.count > 0){
     [[DataSource sharedInstance] requestNewItemsWithCompletionHandler:^(NSError *error) {
         NSLog(@"%@", error);
     }];
+    }
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshControlDidFire:) forControlEvents:UIControlEventValueChanged];

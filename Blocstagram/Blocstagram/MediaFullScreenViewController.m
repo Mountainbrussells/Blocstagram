@@ -14,6 +14,9 @@
 @property (nonatomic, strong) Media *media;
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
 @property (nonatomic, strong) UITapGestureRecognizer *doubleTap;
+@property (nonatomic, strong) UIButton *shareButton;
+@property (nonatomic, strong) NSLayoutConstraint *shareButtonVerticleConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *shareButtonHorizontalConstraint;
 
 @end
 
@@ -57,6 +60,20 @@
     
     [self.scrollView addGestureRecognizer:self.tap];
     [self.scrollView addGestureRecognizer:self.doubleTap];
+    
+    // Add share button
+    self.shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.shareButton.backgroundColor = [UIColor colorWithRed:0.898 green:0.898 blue:0.898 alpha:1];
+    self.shareButton.layer.cornerRadius = 10;
+    self.shareButton.clipsToBounds = YES;
+    [self.shareButton addTarget:self action:@selector(shareButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.shareButton setTitle:@"Share" forState:UIControlStateNormal];
+    self.shareButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.shareButton setTitleColor:[UIColor colorWithRed:0.345 green:0.314 blue:0.550 alpha:1] forState:UIControlStateNormal];
+    
+
+    
+    [self.scrollView addSubview:self.shareButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -83,6 +100,35 @@
     
     self.scrollView.minimumZoomScale = minScale;
     self.scrollView.maximumZoomScale = 1;
+    
+   // TODO: not understanding trailing
+//    self.shareButtonHorizontalConstraint = [NSLayoutConstraint constraintWithItem:_shareButton
+//                                                                        attribute:NSLayoutAttributeTrailing
+//                                                                        relatedBy:NSLayoutRelationEqual
+//                                                                           toItem:self.scrollView
+//                                                                        attribute:NSLayoutAttributeTrailing
+//                                                                       multiplier:1
+//                                                                         constant:8];
+    
+    self.shareButtonHorizontalConstraint = [NSLayoutConstraint constraintWithItem:_shareButton
+                                                                        attribute:NSLayoutAttributeCenterX
+                                                                        relatedBy:NSLayoutRelationEqual
+                                                                           toItem:self.scrollView
+                                                                        attribute:NSLayoutAttributeCenterX
+                                                                       multiplier:1
+                                                                         constant:0];
+
+    self.shareButtonVerticleConstraint = [NSLayoutConstraint constraintWithItem:_shareButton
+                                                                      attribute:NSLayoutAttributeTop
+                                                                      relatedBy:NSLayoutRelationEqual
+                                                                         toItem:self.scrollView
+                                                                      attribute:NSLayoutAttributeTopMargin
+                                                                     multiplier:1
+                                                                       constant:20];
+    [self.scrollView addConstraints:@[self.shareButtonHorizontalConstraint, self.shareButtonVerticleConstraint]];
+    
+    [self.scrollView setNeedsLayout];
+    [self.scrollView layoutIfNeeded];
     
 }
 
@@ -133,8 +179,14 @@
         
         [self.scrollView zoomToRect:CGRectMake(x, y, width, height) animated:YES];
         
+        [self.scrollView setNeedsLayout];
+        [self.scrollView layoutIfNeeded];
+        
     } else {
         [self.scrollView setZoomScale:self.scrollView.minimumZoomScale animated:YES];
+        
+        [self.scrollView setNeedsLayout];
+        [self.scrollView layoutIfNeeded];
     }
 }
 
@@ -148,6 +200,24 @@
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView
 {
     [self centerScrollView];
+}
+
+#pragma mark - Share Button
+- (void)shareButtonTapped:(UIButton *)sender
+{
+    NSLog(@"Share button was tapped");
+    
+    NSMutableArray *itemsToShare = [NSMutableArray array];
+    
+    
+    if (self.imageView.image) {
+        [itemsToShare addObject:self.imageView.image];
+    }
+    
+    if (itemsToShare.count > 0) {
+        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+        [self presentViewController:activityVC animated:YES completion:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

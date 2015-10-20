@@ -172,6 +172,14 @@
     }
 }
 
+- (void)cell:(MediaTableViewCell *)cell didDoubleFingerTapImageView:(UIImageView *)imageView
+{
+    NSLog(@"You tapped with 2 fingers");
+    
+    [[DataSource sharedInstance] rerequestItemForCurrentIndex:[[DataSource sharedInstance].mediaItems indexOfObject:cell.mediaItem]];
+    
+}
+
 #pragma mark - Table view data source
 
 

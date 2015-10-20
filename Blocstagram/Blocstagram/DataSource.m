@@ -148,6 +148,18 @@
     }
 }
 
+- (void)rerequestItemForCurrentIndex:(NSInteger)index
+{
+    if (self.isRefreshing == NO) {
+        self.isRefreshing = YES;
+        
+        Media *currentMedia= [self.mediaItems objectAtIndex:index];
+       
+        currentMedia.image = nil;
+        [self downLoadImageForMediaItem:currentMedia];
+    }
+}
+
 - (void)populateDataWithParameters:(NSDictionary *)parameters completionHandler:(NewItemCompletionBlock)completionHandler
 {
     if (self.accessToken) {
@@ -184,6 +196,7 @@
     
     NSMutableArray *tmpMediaItems = [NSMutableArray array];
     
+    
     for (NSDictionary *mediaDictionary in mediaArray) {
         Media *mediaItem = [[Media alloc] initWithDictionary:mediaDictionary];
         
@@ -192,6 +205,7 @@
             [self downLoadImageForMediaItem:mediaItem];
         }
     }
+    
     
     NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
     

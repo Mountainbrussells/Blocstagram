@@ -72,9 +72,7 @@
                         self.mediaItems = mutableMediaItems;
                         [self didChangeValueForKey:@"mediaItems"];
                         // #1
-                        for (Media* mediaItem in self.mediaItems) {
-                            [self downLoadImageForMediaItem:mediaItem];
-                        }
+                        
                     } else {
                         [self populateDataWithParameters:nil completionHandler:nil];
                     }
@@ -189,7 +187,7 @@
         
         if (mediaItem) {
             [tmpMediaItems addObject:mediaItem];
-            [self downLoadImageForMediaItem:mediaItem];
+            
         }
     }
     
@@ -226,20 +224,46 @@
 - (void)downLoadImageForMediaItem:(Media *)mediaItem
 {
     if (mediaItem.mediaImage && !mediaItem.image) {
+        mediaItem.downloadState = MediaDownloadStateDownloadInProgress;
+        
         [self.instagramOperationsManager GET:mediaItem.mediaImage.absoluteString
                                   parameters:nil
                                      success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
                                          if ([responseObject isKindOfClass:[UIImage class]]) {
                                              mediaItem.image = responseObject;
+                                             mediaItem.downloadState = MediaDownloadStateHasImage;
                                              NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
                                              NSUInteger index = [mutableArrayWithKVO indexOfObject:mediaItem];
                                              [mutableArrayWithKVO replaceObjectAtIndex:index withObject:mediaItem];
+                                             [self saveImages];
+                                         } else {
+                                             mediaItem.downloadState = MediaDownloadStateNonRecoverableError;
                                          }
                                          
-                                         [self saveImages];
+                                         
                                      }
                                      failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
                                          NSLog(@"Error downloading image: %@", error);
+                                         
+                                         mediaItem.downloadState = MediaDownloadStateNonRecoverableError;
+                                         
+                                         if ([error.domain isEqualToString:NSURLErrorDomain]) {
+                                             // A networking problem
+                                             if (error.code == NSURLErrorTimedOut ||
+                                                 error.code == NSURLErrorCancelled ||
+                                                 error.code == NSURLErrorCannotConnectToHost ||
+                                                 error.code == NSURLErrorNetworkConnectionLost ||
+                                                 error.code == NSURLErrorNotConnectedToInternet ||
+                                                 error.code == kCFURLErrorInternationalRoamingOff ||
+                                                 error.code == kCFURLErrorCallIsActive ||
+                                                 error.code == kCFURLErrorDataNotAllowed ||
+                                                 error.code == kCFURLErrorTimedOut ||
+                                                 error.code == kCFURLErrorRequestBodyStreamExhausted) {
+                                                 
+                                                 // It might work if we try again
+                                                 mediaItem.downloadState = MediaDownloadStateNeedsImage;
+                                             }
+                                         }
                                      }];
     }
 }

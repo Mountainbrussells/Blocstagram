@@ -15,7 +15,7 @@
 #import "MediaFullScreenViewController.h"
 #import "MediaFullScreenAnimator.h"
 
-@interface ImagesTableViewController () <MediaTableViewCellDelegate, UIViewControllerTransitioningDelegate>
+@interface ImagesTableViewController () <MediaTableViewCellDelegate, UIViewControllerTransitioningDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, weak) UIImageView *lastTappedImageView;
 
@@ -41,6 +41,8 @@
     [self.refreshControl addTarget:self action:@selector(refreshControlDidFire:) forControlEvents:UIControlEventValueChanged];
     
     [self.tableView registerClass:[MediaTableViewCell class] forCellReuseIdentifier:@"mediaCell"];
+    
+    self.tableView.decelerationRate = 0.25;
     
 }
 
@@ -140,6 +142,19 @@
     [self infiniteScrollIfNecessary];
 }
 
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
+{
+    NSLog(@"Scroll View will begin decelerating");
+    UITableView *tableView = self.tableView;
+    NSArray *paths = [tableView indexPathsForVisibleRows];
+    for (NSIndexPath *path in paths) {
+        Media *mediaItem = [DataSource sharedInstance].mediaItems[path.row];
+        if (mediaItem.downloadState == MediaDownloadStateNeedsImage) {
+            [[DataSource sharedInstance] downLoadImageForMediaItem:mediaItem];
+    }
+    }
+}
+
 #pragma mark - MediaTableViewCellDelegate
 
 - (void) cell:(MediaTableViewCell *)cell didTapImage:(UIImageView *)imageView
@@ -172,6 +187,8 @@
     }
 }
 
+
+
 #pragma mark - Table view data source
 
 
@@ -192,9 +209,11 @@
 
 - (void) tableView:(UITableView *)tableView willDisplayCell:(nonnull UITableViewCell *)cell forRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    Media *mediaItem = [DataSource sharedInstance].mediaItems[indexPath.row];
-    if (mediaItem.downloadState == MediaDownloadStateNeedsImage) {
-        [[DataSource sharedInstance] downLoadImageForMediaItem:mediaItem];
+    if (indexPath.row < 5) {
+            Media *mediaItem = [DataSource sharedInstance].mediaItems[indexPath.row];
+        if (mediaItem.downloadState == MediaDownloadStateNeedsImage) {
+            [[DataSource sharedInstance] downLoadImageForMediaItem:mediaItem];
+        }
     }
 }
 
@@ -214,6 +233,7 @@
         return 150;
     }
 }
+
 
 
 /*

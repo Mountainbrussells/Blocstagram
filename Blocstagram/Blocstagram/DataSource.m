@@ -365,19 +365,25 @@
     if (mediaItem.likeState == LikeStateNotLiked) {
         mediaItem.likeState = LikeStateLiking;
         
-        [self.instagramOperationsManager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             mediaItem.likeState = LikeStateliked;
-            
-            if (completionHandler) {
+            if(completionHandler) {
                 completionHandler();
             }
-        } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
-            mediaItem.likeState = LikeStateNotLiked;
-            
-            if (completionHandler) {
-                completionHandler();
-            }
-        }];
+        });
+//        [self.instagramOperationsManager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+//            mediaItem.likeState = LikeStateliked;
+//            
+//            if (completionHandler) {
+//                completionHandler();
+//            }
+//        } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+//            mediaItem.likeState = LikeStateNotLiked;
+//            
+//            if (completionHandler) {
+//                completionHandler();
+//            }
+//        }];
     } else if (mediaItem.likeState == LikeStateliked) {
         
         mediaItem.likeState = LikeStateUnliking;

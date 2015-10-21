@@ -60,7 +60,7 @@
         maskLayer.frame = _circleLayer.bounds;
         _circleLayer.mask = maskLayer;
         
-        CFTimeInterval animationDuration = 1;
+        CFTimeInterval animationDuration = 0.5;
         CAMediaTimingFunction *linearCurve = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
         
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];

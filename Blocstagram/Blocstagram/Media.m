@@ -50,6 +50,18 @@
         BOOL userHasLiked = [mediaDictionary[@"user_has_liked"] boolValue];
         
         self.likeState = userHasLiked ? LikeStateliked : LikeStateNotLiked;
+        
+        NSDictionary *likesDictionary = mediaDictionary[@"likes"];
+        
+        if ([likesDictionary isKindOfClass:[NSDictionary class]]) {
+            self.numberOfLikes = [likesDictionary[@"count"] integerValue];
+        } else {
+            self.numberOfLikes = 0;
+        }
+        
+        
+        
+        
     }
     
     return self;

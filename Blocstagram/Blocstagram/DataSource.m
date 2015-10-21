@@ -365,6 +365,9 @@
     if (mediaItem.likeState == LikeStateNotLiked) {
         mediaItem.likeState = LikeStateLiking;
         
+//        // For testing
+//        mediaItem.likeState = LikeStateliked;
+        
         [self.instagramOperationsManager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
             mediaItem.likeState = LikeStateliked;
             
@@ -382,6 +385,8 @@
         
         mediaItem.likeState = LikeStateUnliking;
         
+//        // for testing
+//        mediaItem.likeState = LikeStateNotLiked;
         [self.instagramOperationsManager DELETE:urlString parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
             mediaItem.likeState = LikeStateNotLiked;
             

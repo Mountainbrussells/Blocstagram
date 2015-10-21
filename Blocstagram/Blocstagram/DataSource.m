@@ -354,4 +354,47 @@
     AFCompoundResponseSerializer *serializer = [AFCompoundResponseSerializer compoundSerializerWithResponseSerializers:@[jsonSerializer, imageSerializer]];
     self.instagramOperationsManager.responseSerializer = serializer;
 }
+
+#pragma mark - Liking Media Items
+
+- (void)toggleLikeOnMediaItem:(Media *)mediaItem withCompletionHandler:(void (^)(void))completionHandler
+{
+    NSString *urlString = [NSString stringWithFormat:@"meedia/%@/likes", mediaItem.idNumber];
+    NSDictionary *parameters = @{@"access_token": self.accessToken};
+    
+    if (mediaItem.likeState == LikeStateNotLiked) {
+        mediaItem.likeState = LikeStateLiking;
+        
+        [self.instagramOperationsManager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+            mediaItem.likeState = LikeStateliked;
+            
+            if (completionHandler) {
+                completionHandler();
+            }
+        } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+            mediaItem.likeState = LikeStateNotLiked;
+            
+            if (completionHandler) {
+                completionHandler();
+            }
+        }];
+    } else if (mediaItem.likeState == LikeStateliked) {
+        
+        mediaItem.likeState = LikeStateUnliking;
+        
+        [self.instagramOperationsManager DELETE:urlString parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+            mediaItem.likeState = LikeStateNotLiked;
+            
+            if (completionHandler) {
+                completionHandler();
+            }
+        } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+            mediaItem.likeState = LikeStateliked;
+            
+            if (completionHandler) {
+                completionHandler();
+            }
+        }];
+    }
+}
 @end

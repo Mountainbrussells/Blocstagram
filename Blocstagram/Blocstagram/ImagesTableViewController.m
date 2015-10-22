@@ -145,14 +145,14 @@
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
 {
     NSLog(@"Scroll View will begin decelerating");
-    UITableView *tableView = self.tableView;
-    NSArray *paths = [tableView indexPathsForVisibleRows];
-    for (NSIndexPath *path in paths) {
-        Media *mediaItem = [DataSource sharedInstance].mediaItems[path.row];
-        if (mediaItem.downloadState == MediaDownloadStateNeedsImage) {
-            [[DataSource sharedInstance] downLoadImageForMediaItem:mediaItem];
-    }
-    }
+//    UITableView *tableView = self.tableView;
+//    NSArray *paths = [tableView indexPathsForVisibleRows];
+//    for (NSIndexPath *path in paths) {
+//        Media *mediaItem = [DataSource sharedInstance].mediaItems[path.row];
+//        if (mediaItem.downloadState == MediaDownloadStateNeedsImage) {
+//            [[DataSource sharedInstance] downLoadImageForMediaItem:mediaItem];
+//    }
+//    }
 }
 
 #pragma mark - MediaTableViewCellDelegate
@@ -204,18 +204,19 @@
     cell.delegate = self;
     cell.mediaItem = [DataSource sharedInstance].mediaItems[indexPath.row];
     
-    return cell;
-}
-
-- (void) tableView:(UITableView *)tableView willDisplayCell:(nonnull UITableViewCell *)cell forRowAtIndexPath:(nonnull NSIndexPath *)indexPath
-{
-    if (indexPath.row < 5) {
-            Media *mediaItem = [DataSource sharedInstance].mediaItems[indexPath.row];
+    // This seems to come a lot closer to what is asked for in the assignment
+    NSArray *paths = [tableView indexPathsForVisibleRows];
+    for (NSIndexPath *path in paths) {
+        Media *mediaItem = [DataSource sharedInstance].mediaItems[path.row];
         if (mediaItem.downloadState == MediaDownloadStateNeedsImage) {
             [[DataSource sharedInstance] downLoadImageForMediaItem:mediaItem];
         }
     }
+    
+    return cell;
 }
+
+
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

@@ -10,12 +10,13 @@
 #import "ImagesTableViewController.h"
 #import "LoginViewController.h"
 #import "DataSource.h"
+#import "Media.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <NSCoding>
 
 @end
 
-@implementation AppDelegate
+@implementation AppDelegate 
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -53,8 +54,12 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    NSArray *mediaItems = [DataSource sharedInstance].mediaItems;
+    
+    for (Media *media in mediaItems) {
+        
+    }
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

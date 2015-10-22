@@ -365,22 +365,24 @@
     if (mediaItem.likeState == LikeStateNotLiked) {
         mediaItem.likeState = LikeStateLiking;
         
-//        // For testing
-//        mediaItem.likeState = LikeStateliked;
+        // For testing
+        mediaItem.likeState = LikeStateliked;
+        mediaItem.numberOfLikes += 1;
+        [self reloadMediaItem:mediaItem];
         
-        [self.instagramOperationsManager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-            mediaItem.likeState = LikeStateliked;
-            
-            if (completionHandler) {
-                completionHandler();
-            }
-        } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
-            mediaItem.likeState = LikeStateNotLiked;
-            
-            if (completionHandler) {
-                completionHandler();
-            }
-        }];
+//        [self.instagramOperationsManager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+//            mediaItem.likeState = LikeStateliked;
+//            
+//            if (completionHandler) {
+//                completionHandler();
+//            }
+//        } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+//            mediaItem.likeState = LikeStateNotLiked;
+//            
+//            if (completionHandler) {
+//                completionHandler();
+//            }
+//        }];
     } else if (mediaItem.likeState == LikeStateliked) {
         
         mediaItem.likeState = LikeStateUnliking;
@@ -401,5 +403,13 @@
             }
         }];
     }
+    
+}
+
+- (void)reloadMediaItem:(Media *)mediaItem {
+    NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
+    
+    NSUInteger index = [mutableArrayWithKVO indexOfObject:mediaItem];
+    [mutableArrayWithKVO replaceObjectAtIndex:index withObject:mediaItem];
 }
 @end

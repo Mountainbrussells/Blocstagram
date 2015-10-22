@@ -35,6 +35,7 @@
 		C9DF7CC21BD5A717008B906A /* MediaFullScreenAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CC11BD5A717008B906A /* MediaFullScreenAnimator.m */; settings = {ASSET_TAGS = (); }; };
 		C9DF7CC81BD7E8CE008B906A /* CircleSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CC71BD7E8CE008B906A /* CircleSpinnerView.m */; settings = {ASSET_TAGS = (); }; };
 		C9DF7CCB1BD7F0D4008B906A /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CCA1BD7F0D4008B906A /* LikeButton.m */; settings = {ASSET_TAGS = (); }; };
+		C9DFD52F1BD9249500835E75 /* ComposeCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFD52E1BD9249500835E75 /* ComposeCommentView.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,8 @@
 		C9DF7CC71BD7E8CE008B906A /* CircleSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleSpinnerView.m; sourceTree = "<group>"; };
 		C9DF7CC91BD7F0D4008B906A /* LikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeButton.h; sourceTree = "<group>"; };
 		C9DF7CCA1BD7F0D4008B906A /* LikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeButton.m; sourceTree = "<group>"; };
+		C9DFD52D1BD9249500835E75 /* ComposeCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeCommentView.h; sourceTree = "<group>"; };
+		C9DFD52E1BD9249500835E75 /* ComposeCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeCommentView.m; sourceTree = "<group>"; };
 		D26648DC5E1848B3413F3C13 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F44DF5C423CCF507404F474F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -179,6 +182,8 @@
 				C9DF7CC11BD5A717008B906A /* MediaFullScreenAnimator.m */,
 				C9DF7CC61BD7E8CE008B906A /* CircleSpinnerView.h */,
 				C9DF7CC71BD7E8CE008B906A /* CircleSpinnerView.m */,
+				C9DFD52D1BD9249500835E75 /* ComposeCommentView.h */,
+				C9DFD52E1BD9249500835E75 /* ComposeCommentView.m */,
 				C9DF7CC91BD7F0D4008B906A /* LikeButton.h */,
 				C9DF7CCA1BD7F0D4008B906A /* LikeButton.m */,
 				C9DF7CAB1BCE9BFC008B906A /* User.h */,
@@ -450,6 +455,7 @@
 				C9DF7CB61BCE9ED2008B906A /* DataSource.m in Sources */,
 				C9DF7C621BCDB545008B906A /* main.m in Sources */,
 				C9DF7CCB1BD7F0D4008B906A /* LikeButton.m in Sources */,
+				C9DFD52F1BD9249500835E75 /* ComposeCommentView.m in Sources */,
 				C9DF7CC81BD7E8CE008B906A /* CircleSpinnerView.m in Sources */,
 				C9DF7CAA1BCDB831008B906A /* ImagesTableViewController.m in Sources */,
 			);

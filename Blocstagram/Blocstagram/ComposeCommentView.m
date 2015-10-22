@@ -96,9 +96,27 @@
     _isWritingComment = isWritingComment;
     
     if (animated) {
-        [UIView animateWithDuration:0.2 animations:^{
-            [self layoutSubviews];
-        }];
+        [UIView animateWithDuration:0.5
+                              delay:0
+             usingSpringWithDamping:0.5
+              initialSpringVelocity:0.5
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             CGFloat currentX = self.button.frame.origin.x;
+                             CGFloat currentY = self.button.frame.origin.y;
+                             self.button.frame = CGRectMake(currentX, currentY, 100, 30);
+                         }
+                         completion:^(BOOL finished) {
+                             [UIView animateWithDuration:0.5
+                                                   delay:0
+                                  usingSpringWithDamping:0.5
+                                   initialSpringVelocity:0.5
+                                                 options:UIViewAnimationOptionCurveEaseIn
+                                              animations:^{
+                                                  [self layoutSubviews];
+                                              }
+                                              completion:nil];
+                         }];
     } else {
         [self layoutSubviews];
     }

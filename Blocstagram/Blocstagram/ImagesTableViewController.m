@@ -193,6 +193,11 @@
 
 #pragma mark - MediaTableViewCellDelegate
 
+// Below is the action used to explain using the responder chain as opposed to using a delegate
+//- (void) imageSelected:(id) sender {
+//    
+//}
+
 - (void) cell:(MediaTableViewCell *)cell didTapImage:(UIImageView *)imageView
 {
     self.lastTappedImageView = imageView;

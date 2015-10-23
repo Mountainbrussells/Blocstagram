@@ -271,6 +271,8 @@ static NSParagraphStyle *paragraphStyle;
 
 - (void)tapFired:(UITapGestureRecognizer *)sender
 {
+// Commented out below is an axample of nil targeted action.  Using the responer chain as apossed to a delegate method.
+//    [[UIApplication sharedApplication] sendAction:@selector(imageSelected:) to:nil from:self forEvent:nil];
     [self.delegate cell:self didTapImage:self.mediaImageView];
     
 }

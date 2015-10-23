@@ -403,7 +403,7 @@
             }
         }];
     }
-    
+    [self saveImages];
 }
 
 - (void)reloadMediaItem:(Media *)mediaItem {

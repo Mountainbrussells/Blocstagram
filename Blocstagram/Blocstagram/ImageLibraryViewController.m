@@ -124,7 +124,10 @@
                                                          contentMode:PHImageContentModeAspectFill
                                                              options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
                                                                  UICollectionViewCell *cellToUpdate = [collectionView cellForItemAtIndexPath:indexPath];
-                                                                 imageView.image = result;
+                                                                 if (cellToUpdate){
+                                                                     UIImageView *imageView = (UIImageView *)[cellToUpdate.contentView viewWithTag:imageViewtag];
+                                                                     imageView.image = result;
+                                                                 }
                                                              }];
     
     return cell;

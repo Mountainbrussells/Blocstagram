@@ -10,12 +10,12 @@
 
 @class CameraToolBar;
 
+
 @protocol CameraToolbarDelegate <NSObject>
 
-- (void)leftButtonPressedOnToolbar:(CameraToolBar *)toolbar;
-- (void)rightButtonPressedOnToolbar:(CameraToolBar *)toolbar;
-- (void)cameraButtonPressedOnToolbar:(CameraToolBar *)toolbar;
-
+- (void) leftButtonPressedOnToolbar:(CameraToolBar *)toolbar;
+- (void) rightButtonPressedOnToolbar:(CameraToolBar *)toolbar;
+- (void) cameraButtonPressedOnToolbar:(CameraToolBar *)toolbar;
 
 @end
 

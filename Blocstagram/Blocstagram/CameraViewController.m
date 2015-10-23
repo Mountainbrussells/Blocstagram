@@ -319,7 +319,7 @@
             [self.session addInput:newVideoInput];
             [self.session commitConfiguration];
             
-            [UIView animateKeyframesWithDuration:0.2
+            [UIView animateWithDuration:0.2
                                            delay:0
                                          options:UIViewAnimationOptionCurveEaseInOut
                                       animations:^{

@@ -39,6 +39,21 @@
     UIImage *cancelImage = [UIImage imageNamed:@"x"];
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithImage:cancelImage style:UIBarButtonItemStyleDone target:self action:@selector(cancelPressed:)];
     self.navigationItem.leftBarButtonItem = cancelButton;
+    
+    CGFloat width = CGRectGetWidth(self.view.frame) - 20.0;
+//    CGFloat minWidth = 100;
+    CGFloat finalItemWidth = width / 3.0 - 10.0;
+    CGFloat cellSize = finalItemWidth;
+//    CGFloat width = CGRectGetWidth(self.view.frame)/3.0f;
+    /*
+     Take final item width
+     */
+    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
+    flowLayout.sectionInset = UIEdgeInsetsMake(20, 10.0, 10, 10.0);
+    flowLayout.itemSize = CGSizeMake(cellSize, cellSize);
+//    flowLayout.minimumInteritemSpacing = 10.0;
+//    flowLayout.minimumLineSpacing = 10.0;
+    // Best to do in viewDidLoad
 }
 
 - (void)cancelPressed:(UIBarButtonItem *)sender
@@ -48,19 +63,10 @@
 
 - (void)viewWillLayoutSubviews
 {
+    
     [super viewWillLayoutSubviews];
     
-//    CGFloat width = CGRectGetWidth(self.view.frame);
-//    CGFloat minWidth = 100;
-//    NSInteger divisor = width / minWidth;
-//    CGFloat cellSize = width / divisor;
-    CGFloat width = CGRectGetWidth(self.view.frame)/3.0f;
-    
-    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
-    flowLayout.sectionInset = UIEdgeInsetsMake(20, 0, 10, 0);
-    flowLayout.itemSize = CGSizeMake(width, width);
-    flowLayout.minimumInteritemSpacing = 0;
-    flowLayout.minimumLineSpacing = 0;
+
 }
 
 
@@ -111,7 +117,7 @@
         
         imageView.tag = imageViewtag;
         imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        imageView.contentMode = YES;
+        imageView.contentMode = UIViewContentModeScaleToFill;
         [cell.contentView addSubview:imageView];
     }
     
@@ -133,7 +139,7 @@
                                                                  imageView.image = result;
                                                                  }
                                                              }];
-    
+    cell.backgroundColor = [UIColor redColor];
     return cell;
 }
 

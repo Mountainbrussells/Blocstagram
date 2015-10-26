@@ -42,6 +42,7 @@
 		C9DFD53B1BDAA78400835E75 /* CropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFD53A1BDAA78400835E75 /* CropBox.m */; settings = {ASSET_TAGS = (); }; };
 		C9DFD53E1BDAAF2000835E75 /* CropImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFD53D1BDAAF2000835E75 /* CropImageViewController.m */; settings = {ASSET_TAGS = (); }; };
 		C9DFD5441BDACA1000835E75 /* ImageLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFD5431BDACA1000835E75 /* ImageLibraryViewController.m */; settings = {ASSET_TAGS = (); }; };
+		C9DFD5471BDE7FB900835E75 /* PostToInstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFD5461BDE7FB900835E75 /* PostToInstagramViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,8 @@
 		C9DFD53D1BDAAF2000835E75 /* CropImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CropImageViewController.m; sourceTree = "<group>"; };
 		C9DFD5421BDACA1000835E75 /* ImageLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLibraryViewController.h; sourceTree = "<group>"; };
 		C9DFD5431BDACA1000835E75 /* ImageLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLibraryViewController.m; sourceTree = "<group>"; };
+		C9DFD5451BDE7FB900835E75 /* PostToInstagramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostToInstagramViewController.h; sourceTree = "<group>"; };
+		C9DFD5461BDE7FB900835E75 /* PostToInstagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostToInstagramViewController.m; sourceTree = "<group>"; };
 		D26648DC5E1848B3413F3C13 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F44DF5C423CCF507404F474F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -210,6 +213,8 @@
 				C9DFD5311BD94BC800835E75 /* CameraToolBar.m */,
 				C9DFD5331BD989BB00835E75 /* CameraViewController.h */,
 				C9DFD5341BD989BB00835E75 /* CameraViewController.m */,
+				C9DFD5451BDE7FB900835E75 /* PostToInstagramViewController.h */,
+				C9DFD5461BDE7FB900835E75 /* PostToInstagramViewController.m */,
 				C9DFD5391BDAA78400835E75 /* CropBox.h */,
 				C9DFD53A1BDAA78400835E75 /* CropBox.m */,
 				C9DF7CC91BD7F0D4008B906A /* LikeButton.h */,
@@ -488,6 +493,7 @@
 				C9DFD5351BD989BB00835E75 /* CameraViewController.m in Sources */,
 				C9DF7CB61BCE9ED2008B906A /* DataSource.m in Sources */,
 				C9DF7C621BCDB545008B906A /* main.m in Sources */,
+				C9DFD5471BDE7FB900835E75 /* PostToInstagramViewController.m in Sources */,
 				C9DFD5441BDACA1000835E75 /* ImageLibraryViewController.m in Sources */,
 				C9DF7CCB1BD7F0D4008B906A /* LikeButton.m in Sources */,
 				C9DFD5381BD99DFE00835E75 /* UIImage+ImageUtilities.m in Sources */,
@@ -628,6 +634,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Blocstagram/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BenRussell.Blocstagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -640,6 +647,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Blocstagram/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BenRussell.Blocstagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";

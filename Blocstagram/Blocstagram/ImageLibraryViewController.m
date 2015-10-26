@@ -50,16 +50,19 @@
 {
     [super viewWillLayoutSubviews];
     
-    CGFloat width = CGRectGetWidth(self.view.frame);
-    CGFloat minWidth = 100;
-    NSInteger divisor = width / minWidth;
-    CGFloat cellSize = width / divisor;
+//    CGFloat width = CGRectGetWidth(self.view.frame);
+//    CGFloat minWidth = 100;
+//    NSInteger divisor = width / minWidth;
+//    CGFloat cellSize = width / divisor;
+    CGFloat width = CGRectGetWidth(self.view.frame)/3.0f;
     
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
-    flowLayout.itemSize = CGSizeMake(cellSize, cellSize);
+    flowLayout.sectionInset = UIEdgeInsetsMake(20, 0, 10, 0);
+    flowLayout.itemSize = CGSizeMake(width, width);
     flowLayout.minimumInteritemSpacing = 0;
     flowLayout.minimumLineSpacing = 0;
 }
+
 
 - (void)loadAssets
 {
@@ -124,11 +127,17 @@
                                                          contentMode:PHImageContentModeAspectFill
                                                              options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
                                                                  UICollectionViewCell *cellToUpdate = [collectionView cellForItemAtIndexPath:indexPath];
+                                                                 
+                                                                 if (cellToUpdate){
+                                                                     UIImageView *imageView = (UIImageView *)[cellToUpdate.contentView viewWithTag:imageViewtag];
                                                                  imageView.image = result;
+                                                                 }
                                                              }];
     
     return cell;
 }
+
+
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {

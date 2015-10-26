@@ -16,6 +16,9 @@
 @property (nonatomic, strong) CropBox *cropBox;
 @property (nonatomic, assign) BOOL hasLoadedOnce;
 
+@property (nonatomic, strong)UIToolbar *topView;
+@property (nonatomic, strong)UIToolbar *bottomView;
+
 @end
 
 @implementation CropImageViewController
@@ -30,6 +33,14 @@
         
         self.cropBox = [CropBox new];
         
+        self.topView = [UIToolbar new];
+        self.bottomView = [UIToolbar new];
+        UIColor *whiteBG = [UIColor colorWithWhite:1.0 alpha:.15];
+        self.topView.barTintColor = whiteBG;
+        self.bottomView.barTintColor = whiteBG;
+        self.topView.alpha = 0.5;
+        self.bottomView.alpha = 0.5;
+        
     }
     
     return self;
@@ -42,6 +53,9 @@
     self.view.clipsToBounds = YES;
     
     [self.view addSubview:self.cropBox];
+    [self.view addSubview:self.topView];
+    [self.view addSubview:self.bottomView];
+    
     
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Crop", @"Crop command") style:UIBarButtonItemStyleDone target:self action:@selector(cropPressed:)];
     
@@ -56,6 +70,17 @@
 - (void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
+    
+    CGFloat width = CGRectGetWidth(self.view.bounds);
+    self.topView.frame = CGRectMake(0, self.topLayoutGuide.length, width, 44);
+    
+    CGFloat yOriginOfBottomView = CGRectGetMaxY(self.topView.frame) + width;
+    CGFloat heightOfBottomView = CGRectGetHeight(self.view.frame) - yOriginOfBottomView;
+    self.bottomView.frame = CGRectMake(0 , yOriginOfBottomView, width, heightOfBottomView);
+    
+    /* NOT SURE IF I MISSED SOMETHING IN THE CHECKPOINT>  THIS VIEW DOES NOT SEEM TO HAVE THE SCROLL AND CROP EFFECT IT SHOULD */
+    
+//    self.cropBox.frame = CGRectMake(0, CGRectGetMaxY(self.topView.frame), width, width);
     
     CGRect cropRect = CGRectZero;
     

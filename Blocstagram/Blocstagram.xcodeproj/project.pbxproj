@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3D5B4135B7C5D5A973C6EB36 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F44DF5C423CCF507404F474F /* libPods.a */; };
+		C981E90B1BDEB3A300DB3799 /* FilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C981E90A1BDEB3A300DB3799 /* FilterCell.m */; settings = {ASSET_TAGS = (); }; };
 		C9DF7C621BCDB545008B906A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7C611BCDB545008B906A /* main.m */; };
 		C9DF7C651BCDB545008B906A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7C641BCDB545008B906A /* AppDelegate.m */; };
 		C9DF7C6D1BCDB545008B906A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7C6C1BCDB545008B906A /* Assets.xcassets */; };
@@ -64,6 +65,8 @@
 
 /* Begin PBXFileReference section */
 		B84536A16628DEA78AE7C416 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C981E9091BDEB3A300DB3799 /* FilterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterCell.h; sourceTree = "<group>"; };
+		C981E90A1BDEB3A300DB3799 /* FilterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterCell.m; sourceTree = "<group>"; };
 		C9DF7C5D1BCDB545008B906A /* Blocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9DF7C611BCDB545008B906A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C9DF7C631BCDB545008B906A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -215,6 +218,8 @@
 				C9DFD5341BD989BB00835E75 /* CameraViewController.m */,
 				C9DFD5451BDE7FB900835E75 /* PostToInstagramViewController.h */,
 				C9DFD5461BDE7FB900835E75 /* PostToInstagramViewController.m */,
+				C981E9091BDEB3A300DB3799 /* FilterCell.h */,
+				C981E90A1BDEB3A300DB3799 /* FilterCell.m */,
 				C9DFD5391BDAA78400835E75 /* CropBox.h */,
 				C9DFD53A1BDAA78400835E75 /* CropBox.m */,
 				C9DF7CC91BD7F0D4008B906A /* LikeButton.h */,
@@ -492,6 +497,7 @@
 				C9DF7CBC1BD06689008B906A /* LoginViewController.m in Sources */,
 				C9DFD5351BD989BB00835E75 /* CameraViewController.m in Sources */,
 				C9DF7CB61BCE9ED2008B906A /* DataSource.m in Sources */,
+				C981E90B1BDEB3A300DB3799 /* FilterCell.m in Sources */,
 				C9DF7C621BCDB545008B906A /* main.m in Sources */,
 				C9DFD5471BDE7FB900835E75 /* PostToInstagramViewController.m in Sources */,
 				C9DFD5441BDACA1000835E75 /* ImageLibraryViewController.m in Sources */,

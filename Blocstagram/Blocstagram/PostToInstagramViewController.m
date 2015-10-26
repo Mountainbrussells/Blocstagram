@@ -7,6 +7,7 @@
 //
 
 #import "PostToInstagramViewController.h"
+#import "FilterCell.h"
 
 @interface PostToInstagramViewController () <UICollectionViewDataSource, UICollectionViewDelegate,UIDocumentInteractionControllerDelegate>
 
@@ -79,7 +80,7 @@
         self.navigationItem.rightBarButtonItem = self.sendBarButton;
     }
     
-    [self.filterCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
+    [self.filterCollectionView registerClass:[FilterCell class] forCellWithReuseIdentifier:@"filterCell"];
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.filterCollectionView.backgroundColor = [UIColor whiteColor];
@@ -128,36 +129,16 @@
 
 - (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    
-    static NSInteger imageViewTag = 1000;
-    static NSInteger labelTag = 1001;
-    
-    UIImageView *thumbnail = (UIImageView *)[cell.contentView viewWithTag:imageViewTag];
-    UILabel *label = (UILabel *)[cell.contentView viewWithTag:labelTag];
+    FilterCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"filterCell" forIndexPath:indexPath];
     
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.filterCollectionView.collectionViewLayout;
-    CGFloat thumbnailEdgeSize = flowLayout.itemSize.width;
     
-    if (!thumbnail) {
-        thumbnail = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, thumbnailEdgeSize, thumbnailEdgeSize)];
-        thumbnail.contentMode = UIViewContentModeScaleAspectFill;
-        thumbnail.tag = imageViewTag;
-        thumbnail.clipsToBounds = YES;
-        
-        [cell.contentView addSubview:thumbnail];
-    }
+    cell.layout = flowLayout;
     
-    if (!label) {
-        label = [[UILabel alloc] initWithFrame:CGRectMake(0, thumbnailEdgeSize, thumbnailEdgeSize, 20)];
-        label.tag = labelTag;
-        label.textAlignment = NSTextAlignmentCenter;
-        label.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:10];
-        [cell.contentView addSubview:label];
-    }
+    [cell layoutFilterCell];
+    cell.thumbnail.image = self.filterImages[indexPath.row];
+    cell.label.text = self.filterTitles[indexPath.row];
     
-    thumbnail.image = self.filterImages[indexPath.row];
-    label.text = self.filterTitles[indexPath.row];
     return cell;
 }
 
@@ -205,7 +186,8 @@
         }
     }];
     
-    // Boom Filter
+    // Boom filter
+    
     [self.photoFilterOperationQue addOperationWithBlock:^{
         CIFilter *boomFilter = [CIFilter filterWithName:@"CIPhotoEffectProcess"];
         
@@ -242,6 +224,33 @@
         if (moodyFilter) {
             [moodyFilter setValue:sourceCIImage forKey:kCIInputImageKey];
             [self addCIImageToCollectionView:moodyFilter.outputImage withFilterTitle:NSLocalizedString(@"Moody", @"Moody Filter")];
+        }
+    }];
+    
+    // Fire Filter
+    [self.photoFilterOperationQue addOperationWithBlock:^{
+        CIFilter *fireFilter = [CIFilter filterWithName:@"CITemperatureAndTint"];
+        
+        if (fireFilter) {
+            [fireFilter setValue:sourceCIImage forKey:kCIInputImageKey];
+            [self addCIImageToCollectionView:fireFilter.outputImage withFilterTitle:NSLocalizedString(@"Fire", @"Fire Filter")];
+        }
+    }];
+    
+    // Instant Filter
+    [self.photoFilterOperationQue addOperationWithBlock:^{
+        CIFilter *instantFilter = [CIFilter filterWithName:@"CIPhotoEffectInstant"];
+        CIFilter *vibranceFilter = [CIFilter filterWithName:@"CIVibrance"];
+        
+        if (instantFilter) {
+            [instantFilter setValue:sourceCIImage forKey:kCIInputImageKey];
+            CIImage *result = instantFilter.outputImage;
+            
+            if (vibranceFilter) {
+                [vibranceFilter setValue:result forKey:kCIInputImageKey];
+                result = vibranceFilter.outputImage;
+            }
+            [self addCIImageToCollectionView:result withFilterTitle:NSLocalizedString(@"Vibrant Instance", @"Vibrant Instance Filter")];
         }
     }];
     

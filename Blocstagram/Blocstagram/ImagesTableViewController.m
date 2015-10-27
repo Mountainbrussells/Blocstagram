@@ -23,6 +23,7 @@
 @property (nonatomic, weak) UIImageView *lastTappedImageView;
 @property (nonatomic, weak) UIView *lastSelectedCommentView;
 @property (nonatomic, assign) CGFloat lastKeyboardAdjustment;
+@property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
 
 @end
 
@@ -67,6 +68,16 @@
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
     
+    
+    
+    
+    
+    
+}
+
+- (void)tapFired:(UIGestureRecognizer *)sender
+{
+    NSLog(@"Tap fired");
 }
 
 - (void)dealloc
@@ -87,6 +98,8 @@
 {
     
 }
+
+
 
 - (void)refreshControlDidFire:(UIRefreshControl *) sender
 {
@@ -213,7 +226,11 @@
     }
     
     [self presentViewController:fullScreenVC animated:YES completion:nil];
+    
+   
 }
+
+
 
 - (void) cell:(MediaTableViewCell *)cell didLongPressImageView:(UIImageView *)imageView
 {

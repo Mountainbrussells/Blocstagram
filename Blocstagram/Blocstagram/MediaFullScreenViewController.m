@@ -57,14 +57,32 @@
     
     [self.scrollView addGestureRecognizer:self.tap];
     [self.scrollView addGestureRecognizer:self.doubleTap];
+//    UIWindow *keyWindow = [[[UIApplication sharedApplication] delegate] window];
+//    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
+   
+    
+    
+}
+
+
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
+    
+    [recognizer setNumberOfTapsRequired:1];
+    [self.view.window addGestureRecognizer:recognizer];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
+    
     [self centerScrollView];
 }
+
+
 
 - (void)viewWillLayoutSubviews
 {
@@ -124,6 +142,7 @@
 
 - (void)tapFired:(UIGestureRecognizer *)sender
 {
+    NSLog(@"Tap fired");
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

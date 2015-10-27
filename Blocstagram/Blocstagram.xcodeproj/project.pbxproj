@@ -14,35 +14,36 @@
 		C9DF7C701BCDB545008B906A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7C6E1BCDB545008B906A /* LaunchScreen.storyboard */; };
 		C9DF7C7B1BCDB545008B906A /* BlocstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7C7A1BCDB545008B906A /* BlocstagramTests.m */; };
 		C9DF7C861BCDB545008B906A /* BlocstagramUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7C851BCDB545008B906A /* BlocstagramUITests.m */; };
-		C9DF7C9A1BCDB7AF008B906A /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7C941BCDB7AF008B906A /* 1.jpg */; settings = {ASSET_TAGS = (); }; };
-		C9DF7C9B1BCDB7AF008B906A /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7C951BCDB7AF008B906A /* 2.jpg */; settings = {ASSET_TAGS = (); }; };
-		C9DF7C9C1BCDB7AF008B906A /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7C961BCDB7AF008B906A /* 3.jpg */; settings = {ASSET_TAGS = (); }; };
-		C9DF7C9D1BCDB7AF008B906A /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7C971BCDB7AF008B906A /* 5.jpg */; settings = {ASSET_TAGS = (); }; };
-		C9DF7C9E1BCDB7AF008B906A /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7C981BCDB7AF008B906A /* 9.jpg */; settings = {ASSET_TAGS = (); }; };
-		C9DF7C9F1BCDB7AF008B906A /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7C991BCDB7AF008B906A /* 10.jpg */; settings = {ASSET_TAGS = (); }; };
-		C9DF7CA11BCDB7C2008B906A /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7CA01BCDB7C2008B906A /* 4.jpg */; settings = {ASSET_TAGS = (); }; };
-		C9DF7CA31BCDB7C8008B906A /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7CA21BCDB7C8008B906A /* 6.jpg */; settings = {ASSET_TAGS = (); }; };
-		C9DF7CA51BCDB7CC008B906A /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7CA41BCDB7CC008B906A /* 7.jpg */; settings = {ASSET_TAGS = (); }; };
-		C9DF7CA71BCDB7D1008B906A /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7CA61BCDB7D1008B906A /* 8.jpg */; settings = {ASSET_TAGS = (); }; };
-		C9DF7CAA1BCDB831008B906A /* ImagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CA91BCDB831008B906A /* ImagesTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		C9DF7CAD1BCE9BFC008B906A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CAC1BCE9BFC008B906A /* User.m */; settings = {ASSET_TAGS = (); }; };
-		C9DF7CB01BCE9D14008B906A /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CAF1BCE9D14008B906A /* Media.m */; settings = {ASSET_TAGS = (); }; };
-		C9DF7CB31BCE9E3B008B906A /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CB21BCE9E3B008B906A /* Comment.m */; settings = {ASSET_TAGS = (); }; };
-		C9DF7CB61BCE9ED2008B906A /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CB51BCE9ED2008B906A /* DataSource.m */; settings = {ASSET_TAGS = (); }; };
-		C9DF7CB91BCEAAF5008B906A /* MediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CB81BCEAAF5008B906A /* MediaTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		C9DF7CBC1BD06689008B906A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CBB1BD06689008B906A /* LoginViewController.m */; settings = {ASSET_TAGS = (); }; };
-		C9DF7CBF1BD59DAC008B906A /* MediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CBE1BD59DAC008B906A /* MediaFullScreenViewController.m */; settings = {ASSET_TAGS = (); }; };
-		C9DF7CC21BD5A717008B906A /* MediaFullScreenAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CC11BD5A717008B906A /* MediaFullScreenAnimator.m */; settings = {ASSET_TAGS = (); }; };
-		C9DF7CC81BD7E8CE008B906A /* CircleSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CC71BD7E8CE008B906A /* CircleSpinnerView.m */; settings = {ASSET_TAGS = (); }; };
-		C9DF7CCB1BD7F0D4008B906A /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CCA1BD7F0D4008B906A /* LikeButton.m */; settings = {ASSET_TAGS = (); }; };
-		C9DFD52F1BD9249500835E75 /* ComposeCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFD52E1BD9249500835E75 /* ComposeCommentView.m */; settings = {ASSET_TAGS = (); }; };
-		C9DFD5321BD94BC800835E75 /* CameraToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFD5311BD94BC800835E75 /* CameraToolBar.m */; settings = {ASSET_TAGS = (); }; };
-		C9DFD5351BD989BB00835E75 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFD5341BD989BB00835E75 /* CameraViewController.m */; settings = {ASSET_TAGS = (); }; };
-		C9DFD5381BD99DFE00835E75 /* UIImage+ImageUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFD5371BD99DFE00835E75 /* UIImage+ImageUtilities.m */; settings = {ASSET_TAGS = (); }; };
-		C9DFD53B1BDAA78400835E75 /* CropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFD53A1BDAA78400835E75 /* CropBox.m */; settings = {ASSET_TAGS = (); }; };
-		C9DFD53E1BDAAF2000835E75 /* CropImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFD53D1BDAAF2000835E75 /* CropImageViewController.m */; settings = {ASSET_TAGS = (); }; };
-		C9DFD5441BDACA1000835E75 /* ImageLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFD5431BDACA1000835E75 /* ImageLibraryViewController.m */; settings = {ASSET_TAGS = (); }; };
-		C9DFD5471BDE7FB900835E75 /* PostToInstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFD5461BDE7FB900835E75 /* PostToInstagramViewController.m */; settings = {ASSET_TAGS = (); }; };
+		C9DF7C9A1BCDB7AF008B906A /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7C941BCDB7AF008B906A /* 1.jpg */; };
+		C9DF7C9B1BCDB7AF008B906A /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7C951BCDB7AF008B906A /* 2.jpg */; };
+		C9DF7C9C1BCDB7AF008B906A /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7C961BCDB7AF008B906A /* 3.jpg */; };
+		C9DF7C9D1BCDB7AF008B906A /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7C971BCDB7AF008B906A /* 5.jpg */; };
+		C9DF7C9E1BCDB7AF008B906A /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7C981BCDB7AF008B906A /* 9.jpg */; };
+		C9DF7C9F1BCDB7AF008B906A /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7C991BCDB7AF008B906A /* 10.jpg */; };
+		C9DF7CA11BCDB7C2008B906A /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7CA01BCDB7C2008B906A /* 4.jpg */; };
+		C9DF7CA31BCDB7C8008B906A /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7CA21BCDB7C8008B906A /* 6.jpg */; };
+		C9DF7CA51BCDB7CC008B906A /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7CA41BCDB7CC008B906A /* 7.jpg */; };
+		C9DF7CA71BCDB7D1008B906A /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DF7CA61BCDB7D1008B906A /* 8.jpg */; };
+		C9DF7CAA1BCDB831008B906A /* ImagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CA91BCDB831008B906A /* ImagesTableViewController.m */; };
+		C9DF7CAD1BCE9BFC008B906A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CAC1BCE9BFC008B906A /* User.m */; };
+		C9DF7CB01BCE9D14008B906A /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CAF1BCE9D14008B906A /* Media.m */; };
+		C9DF7CB31BCE9E3B008B906A /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CB21BCE9E3B008B906A /* Comment.m */; };
+		C9DF7CB61BCE9ED2008B906A /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CB51BCE9ED2008B906A /* DataSource.m */; };
+		C9DF7CB91BCEAAF5008B906A /* MediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CB81BCEAAF5008B906A /* MediaTableViewCell.m */; };
+		C9DF7CBC1BD06689008B906A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CBB1BD06689008B906A /* LoginViewController.m */; };
+		C9DF7CBF1BD59DAC008B906A /* MediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CBE1BD59DAC008B906A /* MediaFullScreenViewController.m */; };
+		C9DF7CC21BD5A717008B906A /* MediaFullScreenAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CC11BD5A717008B906A /* MediaFullScreenAnimator.m */; };
+		C9DF7CC81BD7E8CE008B906A /* CircleSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CC71BD7E8CE008B906A /* CircleSpinnerView.m */; };
+		C9DF7CCB1BD7F0D4008B906A /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF7CCA1BD7F0D4008B906A /* LikeButton.m */; };
+		C9DFD52F1BD9249500835E75 /* ComposeCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFD52E1BD9249500835E75 /* ComposeCommentView.m */; };
+		C9DFD5321BD94BC800835E75 /* CameraToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFD5311BD94BC800835E75 /* CameraToolBar.m */; };
+		C9DFD5351BD989BB00835E75 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFD5341BD989BB00835E75 /* CameraViewController.m */; };
+		C9DFD5381BD99DFE00835E75 /* UIImage+ImageUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFD5371BD99DFE00835E75 /* UIImage+ImageUtilities.m */; };
+		C9DFD53B1BDAA78400835E75 /* CropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFD53A1BDAA78400835E75 /* CropBox.m */; };
+		C9DFD53E1BDAAF2000835E75 /* CropImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFD53D1BDAAF2000835E75 /* CropImageViewController.m */; };
+		C9DFD5441BDACA1000835E75 /* ImageLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFD5431BDACA1000835E75 /* ImageLibraryViewController.m */; };
+		C9DFD5471BDE7FB900835E75 /* PostToInstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFD5461BDE7FB900835E75 /* PostToInstagramViewController.m */; };
+		C9E0F73E1BDFDA1900B9F387 /* UserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E0F73D1BDFDA1900B9F387 /* UserTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		C9DFD5431BDACA1000835E75 /* ImageLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLibraryViewController.m; sourceTree = "<group>"; };
 		C9DFD5451BDE7FB900835E75 /* PostToInstagramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostToInstagramViewController.h; sourceTree = "<group>"; };
 		C9DFD5461BDE7FB900835E75 /* PostToInstagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostToInstagramViewController.m; sourceTree = "<group>"; };
+		C9E0F73D1BDFDA1900B9F387 /* UserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTests.m; sourceTree = "<group>"; };
 		D26648DC5E1848B3413F3C13 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F44DF5C423CCF507404F474F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -221,6 +223,7 @@
 				C9DF7CCA1BD7F0D4008B906A /* LikeButton.m */,
 				C9DF7CAB1BCE9BFC008B906A /* User.h */,
 				C9DF7CAC1BCE9BFC008B906A /* User.m */,
+				C9E0F73D1BDFDA1900B9F387 /* UserTests.m */,
 				C9DF7CAE1BCE9D14008B906A /* Media.h */,
 				C9DF7CAF1BCE9D14008B906A /* Media.m */,
 				C9DF7CB11BCE9E3B008B906A /* Comment.h */,
@@ -507,6 +510,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9E0F73E1BDFDA1900B9F387 /* UserTests.m in Sources */,
 				C9DF7C7B1BCDB545008B906A /* BlocstagramTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

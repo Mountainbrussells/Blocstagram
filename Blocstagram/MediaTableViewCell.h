@@ -23,6 +23,7 @@
 @interface MediaTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) Media *mediaItem;
+@property (nonatomic, strong) UIImageView *mediaImageView;
 @property (nonatomic, weak) id <MediaTableViewCellDelegate> delegate;
 @property (nonatomic, strong, readonly) ComposeCommentView *commentView;
 @property (nonatomic, strong)UITraitCollection *overrideTraitCollection;

@@ -15,7 +15,7 @@
 
 @interface MediaTableViewCell() <UIGestureRecognizerDelegate, ComposeCommentViewDelegate>
 
-@property (nonatomic, strong) UIImageView *mediaImageView;
+// @property (nonatomic, strong) UIImageView *mediaImageView;
 @property (nonatomic, strong) UILabel *usernameAndCaptionLabel;
 @property (nonatomic, strong) UILabel *commentLabel;
 

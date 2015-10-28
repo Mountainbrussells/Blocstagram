@@ -158,7 +158,9 @@
         [self.instagramOperationsManager GET:@"users/self/feed"
                                   parameters:mutableParameters
                                      success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+                                         NSLog(@"%@", operation);
                                          if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                                             
                                              [self parseDataFromFeedDictionary:responseObject
                                                      fromRequestWithParameters:parameters];
                                          }
@@ -178,12 +180,14 @@
 
 - (void) parseDataFromFeedDictionary:(NSDictionary *)feedDictionary fromRequestWithParameters:(NSDictionary *)parameters
 {
+    
     NSArray *mediaArray = feedDictionary[@"data"];
     
     NSMutableArray *tmpMediaItems = [NSMutableArray array];
     
     for (NSDictionary *mediaDictionary in mediaArray) {
         Media *mediaItem = [[Media alloc] initWithDictionary:mediaDictionary];
+        NSLog(@"%@", mediaDictionary);
         
         if (mediaItem) {
             [tmpMediaItems addObject:mediaItem];
